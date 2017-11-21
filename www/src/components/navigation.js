@@ -4,6 +4,7 @@ import GithubIcon from "react-icons/lib/go/mark-github"
 import TwitterIcon from "react-icons/lib/fa/twitter"
 
 import DiscordIcon from "../components/discord"
+import DocSearch from "../components/docsearch"
 import logo from "../gatsby-negative.svg"
 import typography, { rhythm, scale } from "../utils/typography"
 import presets from "../utils/presets"
@@ -171,6 +172,10 @@ export default ({ pathname }) => {
             },
           }}
         >
+          <DocSearch
+            navItemStyles={navItemStyles}
+            socialIconsStyles={socialIconsStyles}
+          />
           <a
             href="https://github.com/gatsbyjs/gatsby"
             title="GitHub"

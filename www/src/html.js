@@ -9,6 +9,8 @@ if (process.env.NODE_ENV === `production`) {
   }
 }
 
+const JS_NPM_URLS = [`//unpkg.com/docsearch.js@2.4.1/dist/cdn/docsearch.min.js`]
+
 export default class HTML extends React.Component {
   render() {
     let css
@@ -21,6 +23,8 @@ export default class HTML extends React.Component {
         />
       )
     }
+
+    const js = JS_NPM_URLS.map(url => <script key={url} src={url} />)
 
     return (
       <html {...this.props.htmlAttributes}>
@@ -73,6 +77,10 @@ export default class HTML extends React.Component {
             color="#5bbad5"
           />
           {css}
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+          />
         </head>
         <body {...this.props.bodyAttributes}>
           <div
@@ -80,6 +88,7 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
+          {js}
         </body>
       </html>
     )
